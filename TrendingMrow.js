@@ -30,13 +30,8 @@
               height: 205px;
               justify-content: center;
             ">
-              <a href="https://twitter.com/Chapman/status/1617296455584346113" target="_blank">
-                <img src="https://pbs.twimg.com/media/FnHGpl6XoAEMn5M.png" style="
-                  display: flex;
-                  flex: 1 1 auto;
-                  max-width: 100%;
-                  padding-right: 15px;
-                " />
+              <a href="https://twitter.com/Chapman/status/1617296455584346113" style="padding-right: 15px;" target="_blank">
+                <img src="https://pbs.twimg.com/media/FnHGpl6XoAEMn5M.png" style="max-width: 100%;" />
               </a>
             </div>
           `;
