@@ -1,0 +1,56 @@
+// ==UserScript==
+// @name         "Trending Mrow" on Twitter
+// @author       Stephen Chapman - Twitter: @Chapman | GitHub: dsasmblr
+// @version      0.1
+// @description  See what's Trending Mrow instead of Trending Now!
+// @match        *://*.twitter.com/*
+// @icon         https://www.google.com/s2/favicons?sz=64&domain=twitter.com
+// @grant        none
+// ==/UserScript==
+
+(function() {
+    'use strict';
+
+    const setMrow = () => {
+        const trendingNow = document.querySelector('[aria-label="Timeline: Trending now"]');
+
+        if (trendingNow) {
+          trendingNow.parentElement.innerHTML = `
+            <h2 style="
+              color: white;
+              font: 20px -apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Roboto,Helvetica,Arial,sans-serif;
+              font-weight: 800;
+              padding-left: 16px;
+            ">
+              Trending mrow
+            </h2>
+            <div style="
+              align-items: center;
+              display: flex;
+              height: 205px;
+              justify-content: center;
+            ">
+              <img src="https://pbs.twimg.com/media/FnG3sesXkAA1VN7.png" style="
+                display: flex;
+                flex: 1 1 auto;
+                max-width: 100%;
+                padding-right: 15px;
+              " />
+            </div>
+          `;
+        }
+    }
+
+    const t = document.body;
+    const c = { childList: true, subtree: true };
+
+    const cb = (mutList, obs) => {
+        mutList.forEach((mut) => {
+            setMrow();
+        });
+    };
+
+    const obs = new MutationObserver(cb);
+
+    obs.observe(t, c);
+})();
